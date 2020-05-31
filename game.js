@@ -60,9 +60,8 @@ getNewQuestion = () => {
   if (availableQuestions.length === 0 ||
       questionCounter > MAX_QUESTIONS - 1
     ) {
-    console.log("hello")
     localStorage.setItem("mostRecentScore", score);
-    return window.location.assign("/end.html");
+    return window.location.assign("end.html");
   }
 
   questionCounter++;
@@ -82,14 +81,6 @@ getNewQuestion = () => {
   acceptingAnswers = true;
 };
 
-checkAvailableQuestionsLength = () => {
-  if (availableQuestions.length === 0 ||
-      questionCounter > MAX_QUESTIONS
-    ) {
-    return window.location.assign("/end.html");
-  }
-};
-
 removeDisplayedQuestionFromAvailableQuestions = questionIndex => {
   availableQuestions.splice(questionIndex, 1);
 };
@@ -101,7 +92,6 @@ choices.forEach( choice => {
       return
     }
 
-    // Delay
     acceptingAnswers = false;
 
     const selectedChoice = e.target;
